@@ -159,8 +159,9 @@ addEventListener("touchstart", e => {
 addEventListener("touchmove", e => {
     for(const touch of e.changedTouches){
         const history = touches.get(touch.identifier)
-        const ds = (touch.clientY - history[history.length - 1].y) / e.touches.length
-        currentScroll -= ds
+        const ds = -(touch.clientY - history[history.length - 1].y) / e.touches.length
+        checkBuzz(ds)
+        currentScroll += ds
         currentScroll = Math.max(0, currentScroll)
         history.push(new TouchPos(e.timeStamp, touch.clientX, touch.clientY))
     }
