@@ -7,7 +7,7 @@ const elementHeight = 200
 const elementDistance = 40
 const period = elementHeight + elementDistance
 
-const offset = 234
+const offset = innerHeight
 
 let velocity = 0
 let resistance = 0.002
