@@ -7,6 +7,8 @@ const elementHeight = 200
 const elementDistance = 40
 const period = elementHeight + elementDistance
 
+const offset = 234
+
 let velocity = 0
 let resistance = 0.002
 
@@ -37,7 +39,6 @@ function renderLoop(currentTime){
     }
 }
 
-const offset = innerHeight
 
 requestAnimationFrame(renderLoop)
 
@@ -116,7 +117,7 @@ function draw(){
 
 function checkBuzz(ds){
     if(
-        currentScroll - offset + ds > Math.ceil((currentScroll - offset) / period) * period ||
+        currentScroll + innerHeight - offset + ds > Math.ceil((currentScroll + innerHeight - offset) / period) * period ||
         currentScroll - offset - elementHeight + ds < Math.floor((currentScroll - offset - elementHeight) / period) * period && currentScroll > offset
     ){
         if(navigator.userActivation.hasBeenActive) {
